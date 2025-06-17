@@ -1,0 +1,14 @@
+blinker==1.9.0
+click==8.2.1
+colorama==0.4.6
+Flask==3.1.1
+Flask-JWT-Extended==4.7.1
+Flask-SQLAlchemy==3.1.1
+greenlet==3.2.3
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+PyJWT==2.10.1
+SQLAlchemy==2.0.41
+typing_extensions==4.14.0
+Werkzeug==3.1.3
