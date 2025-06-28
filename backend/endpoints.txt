@@ -1,0 +1,95 @@
+
+/api/dashboard - admin done
+
+Admin endpoints
+
+/api/update/<cardname>
+/api/generate/<cardname> - done
+
+User endpoints 
+
+/api/register done
+/api/request/<cardname> - done
+/api/view/<cardname>
+card_details = UserCardDetail.query.filter_by(cardname = cardname, user_id = current_user.id)
+
+admin_json = {
+    "admin_name": "batman",
+    "users": 30,
+    "card_requests": 10,
+    "card_granted": 12,
+    "available_cards": 4,
+    "card_request_details": [
+        {
+            "username": "user_1",
+            "cardname": "aadhar",
+            "status": "requested"
+        },
+        {
+            "username": "user_2",
+            "cardname": "aadhar",
+            "status": "under_verification"
+        },
+        {
+            "username": "user_3",
+            "cardname": "pan",
+            "status": "verified"
+        },...
+        {
+            "username": "user_4",
+            "cardname": "driving",
+            "status": "generated"
+        },...
+        
+    ]
+}
+
+user_json = {
+    "username": "test user",
+    available_cards: [
+
+    ],
+    card_requests: [
+
+    ]
+	 
+}
+
+card_details = [
+    {
+        attr_name: "fullname",
+        attr_value: "Panther User"
+    }
+    {
+        attr_name: "address",
+        attr_value: "Nagpur"
+    }.
+    .
+    .
+    .
+    .
+    {
+        attr_name: "key",
+        attr_value: "NXWZT7926B"
+    }
+]
+
+
+
+username = New User
+srch_word = newuser
+
+
+
+
+
+
+New User ---> removes spaces + all small
+
+
+
+search: _New_____USer _____________
+
+New User ---> removes spaces + all small
+
+newuser

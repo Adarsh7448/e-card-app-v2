@@ -1,0 +1,12 @@
+User endpoints
+
+/api/register done
+/api/dashboard (user) done
+/api/request/<cardname> done
+/api/view/<cardname> done
+
+Admin endpoints
+
+/api/dashboard (admin) done
+/api/update/<cardname>/<user_id> done
+/api/generate/<cardname>/<user_id> done

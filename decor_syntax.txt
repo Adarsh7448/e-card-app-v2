@@ -1,0 +1,19 @@
+# ===================== decorator syntax ===================
+# def decorator_name():
+#     def wrapper(func):
+#         # additional functioanlity is added here
+#         func()
+#         return func 
+#     return wrapper 
+
+# @decorator_name()
+
+
+# def decorator_name(argument):
+#     def wrapper(func):
+#         def decor(*args, **kwargs)
+#             # additional functioanlity is added here
+#             return func(*args, **kwargs)
+#         return decor
+#     return wrapper 
+# @decorator_name("argument")
