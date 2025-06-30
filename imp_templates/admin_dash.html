@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+         .card{
+          width:200px;
+          
+         }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="canvas" class="overflow-auto">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Welcome {{this_user.username}}</a>
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Log Out</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/summary">Summary</a>
+                  </li>
+                  
+                </ul>
+                <form class="d-flex" action="/results">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                  <select class="form-select me-2" aria-label="Default select example" name="key">
+                    <option selected>select</option>
+                    <option value="user">User</option>
+                    <option value="card">Card</option>
+                  </select>
+                  <input class="btn btn-outline-success" type="submit" value="Search">
+                </form>
+              </div>
+            </div>
+          </nav>
+            <div id="content">
+              
+              <h3 class="headings">Requested Cards</h3>
+              <div id="table" class="border" style="max-height:200px;overflow-y: scroll;">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of Card</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Current Status</th>
+                    <th scope="col" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for info in all_info %}
+                     {% if info.atr_value == "requested" %}
+                        <tr>
+                          <th scope="row">{{info.id}}</th>
+                          <td>{{info.c_name}}</td>
+                          <td>{{info.creator.username}}</td><!--info.creator gives <user>-->
+                          <td>Requested</td>
+                          <td class="justify-content-evenly d-flex">
+                            <a href="/update_status/{{info.c_name}}/{{info.user_id}}" type="button" class="btn btn-warning">Review</a>
+                          </td>
+                        </tr>
+                      {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+              </div>
+              <h3 class="headings">Cards Under Verification</h3>
+              <div id="table" class="border" style="max-height:93px;overflow-y: scroll;">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of Card</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Current Status</th>
+                    <th scope="col" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for info in all_info %}
+                     {% if info.atr_value == "under_verification" %}
+                        <tr>
+                          <th scope="row">{{info.id}}</th>
+                          <td>{{info.c_name}}</td>
+                          <td>{{info.creator.username}}</td><!--info.creator gives <user>-->
+                          <td>Under Verification</td>
+                          <td class="justify-content-evenly d-flex">
+                            <a href="/update_status/{{info.c_name}}/{{info.user_id}}" type="button" class="btn btn-primary">Verify</a>
+                          </td>
+                        </tr>
+                      {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+              </div>
+              <h3 class="headings">Verified Cards </h3>
+              <div id="table" class="border" style="max-height:93px;overflow-y: scroll;">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of Card</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Current Status</th>
+                    <th scope="col" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for info in all_info %}
+                    {% if info.atr_value == "verified" %}
+                      <tr>
+                        <th scope="row">{{info.id}}</th>
+                        <td>{{info.c_name}}</td>
+                        <td>{{info.creator.username}}</td><!--info.creator gives <user>-->
+                        <td>Verified</td>
+                        <td class="justify-content-evenly d-flex">
+                          <a href="/generate/{{info.c_name}}/{{info.user_id}}" type="button" class="btn btn-success">Generate</a>
+                        </td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+              </div>
+
+                <div class="d-flex justify-content-around text-center" style="margin-top: 40px;">
+                  <div class="card bg-info p-3 ">
+                    <h5>Users</h5>
+                    <h1>{{users}}</h1>
+                  </div>
+                  <div class="card bg-warning p-3 ">
+                    <h5>Requests</h5>
+                    <h1>{{requests}}</h1>
+                  </div>
+                  <div class="card bg-success p-3 ">
+                    <h5>Generated</h5>
+                    <h1>{{generated}}</h1>
+                  </div>
+                  <div class="card bg-primary p-3 ">
+                    <h5>Available cards</h5>
+                    <h1>4</h1> 
+                  </div> 
+                </div>   
+            </div>
+        </div>
+    </div>
+</body>
+</html>

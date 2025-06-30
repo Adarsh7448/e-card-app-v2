@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+         .card{
+          width:200px;
+          
+         }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="canvas" class="overflow-auto">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Summary</a>
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">  
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Log Out</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin">Go Back</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+            <div id="content">
+                <h3 class="mx-2">Card Status</h3>
+                <div class="d-flex justify-content-around text-center" style="margin-top: 40px;">
+                  <div class="card bg-info p-3 ">
+                    <h3>Requested cards</h3>
+                    <h5>aadhar-{{ra}}</h5>
+                    <h5>pan-{{rp}}</h5>
+                    <h5>driving-{{rd}}</h5>
+                    <h5>election-{{re}}</h5>
+                  </div>
+                  <div class="card bg-warning p-3 ">
+                    <h3>Cards Under Verification</h3>
+                    <h5>aadhar-{{uva}}</h5>
+                    <h5>pan-{{uvp}}</h5>
+                    <h5>driving-{{uvd}}</h5>
+                    <h5>election-{{uve}}</h5>
+                  </div>
+                  <div class="card bg-success p-3 ">
+                    <h3>Verified Cards</h3>
+                    <h5>aadhar-{{va}}</h5>
+                    <h5>pan-{{vp}}</h5>
+                    <h5>driving-{{vd}}</h5>
+                    <h5>election-{{ve}}</h5>
+                  </div>
+                  <div class="card bg-primary p-3 ">
+                    <h3>Generated cards</h3>
+                    <h5>aadhar-{{ga}}</h5>
+                    <h5>pan-{{gp}}</h5>
+                    <h5>driving-{{gd}}</h5>
+                    <h5>election-{{ge}}</h5> 
+                  </div> 
+                </div> 
+                <div class="my-2">
+                    <h3 class="mx-2"> Generated Cards Pie Chart</h3>
+                    <img src="/static/pie.png" alt="Pie chart">
+                </div>  
+                <div class="my-2">
+                    <h3 class="mx-2"> Requested Cards Bar Graph</h3>
+                    <img src="/static/bar.png" alt="Pie chart">
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

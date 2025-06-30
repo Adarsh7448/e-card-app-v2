@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PAN Card HTML</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id="main">
+        <div id="canvas">
+            <div id="form-body" class="pan" style="width:506px;margin-top: 200px; background-image: linear-gradient(to right, #C0B7C6 , #8FB9CD);">
+                <img src="/static/pan-top.png" alt="" width="480">
+                <hr>
+                <h3 class="text-center">{{details[5].atr_value}}</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <p><strong>Fullname:</strong> {{details[0].atr_value}}</p>
+                        <p><strong>Father's Name:</strong> {{details[1].atr_value}}</p>
+                        <p><strong>DoB:</strong> {{details[2].atr_value}}</p>
+                    </div>
+                    <div class="col-4 text-center">
+                        <img src="/static/Screenshot 2025-02-24 000929.png" alt="user image" height="100" width="100">
+                        <img src="/static/{{details[3].atr_value}}" class="mt-2" alt="user image" height="100" width="100">
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

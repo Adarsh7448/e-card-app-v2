@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aadhar Card HTML</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id="main">
+        <div id="canvas">
+            <div id="form-body" style="width:506px;margin-top: 137px;">
+                <img src="/static/aadhar-top.png" alt="" width="480">
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="/static/{{details[5].atr_value}}" alt="user image" height="150" width="150">
+                    </div>
+                    <div class="col-8">
+                        <p><strong>Fullname:</strong>{{details[0].atr_value}}</p>
+                        <p><strong>Father's Name:</strong>{{details[1].atr_value}}</p>
+                        <p><strong>Gender:</strong>{{details[2].atr_value}}</p>
+                        <p><strong>DoB:</strong>{{details[3].atr_value}}</p>
+                        <p><strong>Address:</strong>{{details[4].atr_value}}</p>
+                    </div>
+                </div>
+                <hr>
+                <h2 class="text-center">
+                    {{details[7].atr_value[0:4]}}&nbsp;
+                    {{details[7].atr_value[4:8]}}&nbsp;
+                    {{details[7].atr_value[8:]}}
+                </h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
