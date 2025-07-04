@@ -1,0 +1,37 @@
+*{
+    margin:0px;
+}
+#main{
+    /* border:2px solid black; */
+    margin-top: 10px;
+}
+
+
+#canvas{
+    border:2px solid black;
+    margin-top: 10px;
+}
+#canvas{
+    width: 60%;
+    margin: auto;
+    height:800px;
+    
+}
+#form-body{
+    width:325px;
+    /* height:400px; */
+    margin:auto;
+    border:1px solid grey;
+    margin-top:200px ;
+    border-radius:5px;
+    padding: 10px;
+}
+.headings{
+    margin:3px;
+    padding-left:3px ;
+    margin-top: 30px;
+}
+
+/* .pan{
+    background-image: url('./pan.webp');
+} */

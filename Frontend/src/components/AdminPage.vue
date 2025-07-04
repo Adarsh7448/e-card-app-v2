@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Admin Dashboard</title>
-    <!-- <link rel="stylesheet" href="/static/style.css"> -->
-    <link rel="stylesheet" href="../Frontend/src/myStyle.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-         .card{
-          width:200px;
-          
-         }
-    </style>
-</head>
-<body>
+<script>
+</script>
+
+<template>
     <div id="main">
         <div id="canvas" class="overflow-auto">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -152,5 +141,7 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+</template>
+
+<style>
+</style>

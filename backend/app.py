@@ -3,6 +3,7 @@ from application.config import LocalDevelopmentConfig
 from application.database import db
 from application.models import User
 from application.security import jwt
+from flask_cors import CORS
 
 app = None
 
@@ -11,6 +12,7 @@ def create_app():
     app.config.from_object(LocalDevelopmentConfig)
     db.init_app(app)
     jwt.init_app(app)
+    CORS(app)
     # api.init_app(app)
     app.app_context().push()
     return app
