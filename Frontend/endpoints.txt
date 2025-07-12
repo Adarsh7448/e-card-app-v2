@@ -1,0 +1,26 @@
+/login
+/register
+
+Admin endpoints
+
+/dashboard
+/admin/update/<cardname>
+/admin/generate/<cardname>
+
+User endpoints 
+
+/dashboard
+/user/request/<cardname>
+/user/view/<cardname>
+
+/error
+
+user_json = {
+    "username": "test user",
+    available_cards: [
+
+    ],
+	"card_requests": [
+
+	]
+}

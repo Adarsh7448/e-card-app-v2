@@ -27,7 +27,7 @@ def login():
 
     user = User.query.filter_by(username=username).one_or_none() # .first()
     if not user or not user.password == password:
-        return jsonify("Wrong username or password"), 401
+        return jsonify(message = "Wrong username or password"), 400
 
     # Notice that we are passing in the actual sqlalchemy user object here
     access_token = create_access_token(identity=user) # "user" is object
@@ -72,6 +72,7 @@ def dashboard():
                 generated += 1
             card_request_json.append(detail_dict)
         return jsonify({
+            "role": current_user.role,
             "admin_name": current_user.username,
             "users": users,
             "card_requests": requested,
@@ -95,6 +96,7 @@ def dashboard():
                 detail_dict["status"] = detail.attr_val
                 card_requests.append(detail_dict)
         return jsonify({
+            "role": current_user.role,
             "username": current_user.username,
             "available_cards": available_cards,
             "card_requests": card_requests
@@ -151,7 +153,7 @@ def update_status(cardname, user_id):
 # ===================== user apis ================
 
 # Request card api route 
-@app.route("/api/request/<string:cardname>")
+@app.route("/api/request/<string:cardname>", methods=['POST'])
 @role_required("user")
 def request_card(cardname):
     if cardname == "aadhar":

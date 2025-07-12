@@ -1,5 +1,5 @@
 <script setup>
-import LoginPage from './components/LoginPage.vue'
+// import LoginPage from './components/LoginPage.vue'
 import NavPage from './components/NavPage.vue'
 import FootPage from './components/FootPage.vue'
 // import AdminPage from './components/AdminPage.vue'
@@ -8,8 +8,9 @@ import FootPage from './components/FootPage.vue'
 
 <template>
   <NavPage />
-  <LoginPage />
+  <!-- <LoginPage /> -->
   <!-- <AdminPage /> -->
+  <RouterView />
   <FootPage />
 </template>
 

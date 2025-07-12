@@ -7,7 +7,8 @@ export default {
             username: "",
             password: ""
            },
-           token: "" 
+           token: "",
+           error: "" 
         }
     },
     methods:{
@@ -22,18 +23,16 @@ export default {
             })
             response
             .then(res => {
-                if(res.status == 200){
                     this.token = res.data.access_token
                     localStorage.setItem("token", res.data.access_token)
-                }
-                else{
-                    console.log(res.response.data)
-                }
-            })
-            // .then(data => console.log(data))
-        },
-        logoutUser(){
-            localStorage.clear()
+                    this.$router.push('/dashboard')
+            }).catch(err => this.error = err.response.data.message)
+
+
+            // alternative
+            // catch((err) => {
+            //     this.error = err.response.data.message
+            // })
         }
     }
 }
@@ -44,6 +43,7 @@ export default {
         <div id="canvas">
             <div id="form-body">
                 <h1>Login Form</h1>
+                <p class="err" v-if="error">{{ error }}</p>
                 <form @submit.prevent="loginUser">
                 <div class="mb-3">
                     <label for="Input1" class="form-label">Username</label>
@@ -59,7 +59,7 @@ export default {
                 Are you a new user? <a href="/register">Register</a>
                </div>
                </form>
-               <button @click="logoutUser" class="btn btn-danger">Logout</button>
+               <!-- <button @click="logoutUser" class="btn btn-danger">Logout</button> -->
             </div>
         </div>
     </div>
@@ -69,5 +69,8 @@ export default {
 <style>
     #form-body{
         height: 337px;
+    }
+    .err{
+        color: red;
     }
 </style>
