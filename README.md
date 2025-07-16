@@ -105,5 +105,100 @@ npm install axios
 npm run dev
 ```
 
+## C. Advanced Backend - Async Jobs setup
+
+### First the setup must be done for the linux system for celery
+
+This guide provides step-by-step instructions to set up and run a Vue3JS and Flask-based application with Celery, Redis, and a virtual environment in WSL.
+
+### **Prerequisites**
+Ensure that you have the following installed:
+- **WSL** with Ubuntu (Refer to the installation guide if needed)
+- **Python 3** and **pip**
+- **Redis**
+
+### Install Node in Ubuntu
+```bash
+https://github.com/nvm-sh/nvm
+```
+
+---
+### 1. Create and Activate Virtual Environment
+```bash
+mkdir my_project && cd my_project
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+### 2. Install Dependencies
+Navigate to the Flask backend directory and install dependencies:
+```bash
+cd backend  # Change to the backend directory
+pip install -r requirements.txt
+```
+
+---
+### 3. Start Redis Server
+Ensure Redis is installed and start the Redis server:
+```bash
+sudo service redis-server start
+```
+To check if Redis is running:
+```bash
+redis-cli ping  # Should return 'PONG'
+```
+
+---
+### 4. Start Celery Worker
+```bash
+cd backend  # Ensure you're in the backend directory
+celery -A app.celery worker --loglevel=info
+```
+
+---
+### 5. Start Celery Beat
+```bash
+celery -A app.celery beat --loglevel=info
+```
+
+---
+### 6. Start Flask Application
+```bash
+python app.py
+```
+The Flask app should now be running.
+
+---
+### 7. Run vite development server for frontend
+
+```bash
+npm run dev
+```
+
+---
+### 8. Testing the Setup
+- Open your browser and navigate to the Vue app: `http://localhost:5173`
+- Monitor Celery logs to ensure background tasks are working correctly.
+
+### 9. Install and Start MailHog
+```
+https://gist.github.com/dipenparmar12/4e6cd50d8d1303d5e914742f62659116
+```
+
+---
+### **Stopping Services**
+To stop the services:
+```bash
+sudo servicectl stop redis  # Stop Redis or
+sudo service redis-server start 
+pkill -f "celery"  # Stop Celery worker and beat
+```
+
+---
+### **Conclusion**
+Following these steps ensures that your Vue3JS + Flask application with Celery is running smoothly within WSL. Ensure all services are started before using the application for proper functionality.
+
+
 ## Note
 This README.md will be updated as the project develops. Please check back periodically for new setup instructions, features, and improvements.
